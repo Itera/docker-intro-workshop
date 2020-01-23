@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $.ajax("http://localhost:5000/api/values", {
+          headers: {'Access-Control-Allow-Origin': '*'},
+          success: function (data) {
+            $("#content").html(JSON.stringify(data));
+          }
+        });
+      })
+    </script>
+  </head>
+  <body>
+    <h1>Content from server</h1>
+    <div id="content">
+    </div>
+  </body>
+</html>
