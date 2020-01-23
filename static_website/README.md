@@ -2,17 +2,27 @@
 
 The goal of this task is to serve a website on localhost:8080
 
-We will do this with docker using the [nginx image](https://hub.docker.com/_/nginx).
+We will serve the website using a webserver called [NGINX](https://www.nginx.com/products/nginx/).
 
-- **Clone the repository and navigate to this folder**
+Since we don't want to install and configure nginx ourselves, we will create a Docker image that extends the official [nginx image](https://hub.docker.com/_/nginx).
+
+## Run the image
+
+- **We can run the nginx image using the following command**
+```
+docker run --rm --publish 8080:80 nginx
+```
+
+Try opening https://localhost:8080
+
+You should see a nginx welcome message.
 
 ## Using mounted volume
-We will first solve this by running the base nginx image and mounting the current directory into the /usr/share/nginx/html folder in the container.
+We want to see our own website instead of the welcome message. We will first solve this by mounting the current directory (this folder) into the `/usr/share/nginx/html` folder in the `nginx` container. We can do this by adding the `--volume` flag to the command.
 
 - **Run the following command:**
-
 ```
-docker run --rm --name my-static-website --publish 8080:80 --volume $(pwd):/usr/share/nginx/html:ro nginx
+docker run --rm --publish 8080:80 --volume $(pwd):/usr/share/nginx/html:ro nginx
 ```
 
 NOTE: If you are using Windows you can run it in Powershell by replacing `$(pwd)` with `${pwd}`.
@@ -28,17 +38,19 @@ In this task we will copy the index.html file into the container instead of moun
 
 - **Modify the Dockerfile so that it inherits from the nginx image and adds a copy of the `index.html` file to the `/usr/share/nginx/html` folder in the container.**
 
+The relevant Dockerfile commands here are `FROM <base_image_name>` and `COPY <from (our filesystem)> <to (container filesystem)>`.
+
 Checkout the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) if you need any more guidance.
 
 
 - **Create an image from your Dockerfile using the `docker build` command:**
 ```
-docker build --tag static-website .
+docker build --tag my-static-website .
 ```
 
 - **Start a container from the image using the `docker run` command:**
 ```
-docker run --rm --publish 8080:80 static-website
+docker run --rm --publish 8080:80 my-static-website
 ```
 
 You should then be able to view the website by opening http://localhost:8080 in a browser.
