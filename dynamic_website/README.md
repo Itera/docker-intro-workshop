@@ -17,15 +17,15 @@ docker run --rm -p 8080:80 dynamic-website
 ```
 
 ## API
-The code for the API we will use is in the [ValuesApi](../ValuesApi) folder.
+The code for the API we will use is in the [api](../api) folder.
 
 This API should be run in a separate container and port 80 in this container should be exposed on port 5000 on your system.
 
 - **Write a Dockerfile that:**
-1. Builds the API
+1. Installs the requirements for the API
 2. Runs the API
 
-See the [README](../ValuesApi/README.md) for the API code on how to do this.
+See the [README](../api/README.md) for the API code on how to do this.
 
 - **Create an image from your Dockerfile using the `docker build` command:**
 ```
