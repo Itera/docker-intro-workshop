@@ -1,10 +1,13 @@
 from flask import Flask
+from flask_cors import CORS
 from flask_restful import Resource, Api
+
 from random import randint
 
 values = [ 'FOO', 'BAR', 'BAZ' ]
 
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 class RandomValue(Resource):
