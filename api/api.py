@@ -14,4 +14,4 @@ class RandomValue(Resource):
 api.add_resource(RandomValue, '/value')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
