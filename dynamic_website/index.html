@@ -3,7 +3,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
-        $.ajax("http://localhost:5000/api/values", {
+        $.ajax("http://localhost:5000/value", {
           headers: {'Access-Control-Allow-Origin': '*'},
           success: function (data) {
             $("#content").html(JSON.stringify(data));
