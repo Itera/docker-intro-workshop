@@ -1,17 +1,8 @@
-# Build image
-FROM microsoft/dotnet:2.2-sdk as build
+FROM python:3.6
 
-WORKDIR /app
+COPY requirements.txt .
+COPY api.py .
 
-COPY . .
+RUN pip3 install -r requirements.txt
 
-RUN dotnet publish ValuesApi.csproj -c Release -o out
-
-# Runtime image
-FROM microsoft/dotnet:2.2-aspnetcore-runtime AS runtime
-
-WORKDIR /app
-
-COPY --from=build /app/out .
-
-ENTRYPOINT ["dotnet", "ValuesApi.dll"]
+ENTRYPOINT ["python3", "api.py"]
