@@ -73,6 +73,45 @@ We will create a `bridge` network that our containers can use to communicate.
 docker network create postgres-network
 ```
 
+You can inspect this network with the command:
+```
+docker network inspect postgres-network
+```
+
+It should contain something like this:
+```
+[
+    {
+        "Name": "postgres-network",
+        "Id": "ac36598a15db59882da1644db24a07147572fdce065de779ed83693487d3206b",
+        "Created": "2020-01-26T20:36:25.480091569+01:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {},
+        "Options": {},
+        "Labels": {}
+    }
+]
+```
+
 - **Start your containers in this network:**
 
 ```
@@ -80,8 +119,10 @@ docker run --name my-postgres --net postgres-network  -e POSTGRES_PASSWORD=mysec
 ```
 
 ```
-docker run --rm --net postgres-network -it db-script
+docker run --rm --net postgres-network "DB_HOST=172.18.0.1" db-script
 ```
+
+Note that the `DB_HOST` parameter is now set to `172.18.0.1` which is the `Gateway` IP address for our network.
 
 - **Try running the `db-script` container a couple of times.**
 
