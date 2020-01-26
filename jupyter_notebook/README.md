@@ -1,11 +1,13 @@
-# Data Science using a jupyter notebook
+# Data Science using a Jupyter notebook
 
-In this task we will create a Docker image we can use to run a jupyter kernel that can run our notebooks.
+Some tools can be a bit tricky to install on our own system. They might have lots of requirements and may not support all operating systems.
 
-We will use the `python:3.6` base image for this task.
+In this task we will create a Docker image we can use to run [Jupyter](https://jupyter.org/) notebooks. This way we will be able to use it without having to install the correct version of python, jupyter and other tools required to run it.
+
+We will use the same `python:3.6` base image for this task as we did for our API.
 
 ## Install Jupyter
-In order to run our notebooks we need to install jupyter on our image. We can install it using the python package installer:
+In order to run our notebooks we need to install Jupyter on our image. We can install it using the python package installer:
 ```
 pip3 install jupyter
 ```
@@ -19,27 +21,29 @@ pip3 install -r requirements.txt
 Note that you will have to copy the `requirements.txt` into the container before you run the command.
 
 ## Creating a folder for our notebooks
-We will mount our notebooks into the container so first we need to create the folder:
+Each notebook will have its own file. We will mount our notebooks into the container, but first we need to create the folder on the container:
 ```
 mkdir notebooks
 ```
 
 ## Starting the jupyter kernel
-The final command of our image is to start the jupytern kernel. This can be done with the command:
+The final command of our image is to start the Jupyter kernel. This can be done with the command:
 ```
 jupyter notebook --notebook-dir=/notebooks --ip=0.0.0.0 --port=8888 --allow-root
 ```
 
-## Start the jupyter kernel in a container
-In order to access our notebooks we need to mount our local `/notebooks` folder into the `/notebooks` folder in our container.
+## Start the Jupyter kernel in a container
+In order to access our notebooks we need to mount our local `notebooks` folder into the `/notebooks` folder in our container.
 
 We also need to access the kernel on port `8888`.
 
 We can achieve both these goals by running the command:
 
 ```
-docker run --publish 8888:8888 -v $(pwd)/notebooks:/notebooks -it jupyter-notebook
+docker run --rm --publish 8888:8888 --volume $(pwd)/notebooks:/notebooks -it jupyter-notebook
 ```
+
+NOTE: If you are using Windows you need to replace `$(pwd)` with `${pwd}`.
 
 ## Do some data science!
 We should now be able to access our notebook.
@@ -51,7 +55,7 @@ http://127.0.0.1:8888/?token=95ce0cf993041fd5bfdab43c1e04be66dafa0b1be69e1b53
 
 Open it in a browser and you should be able to see our notebook.
 
-Try solving the first task by pasting the the following code into the cell:
+Try solving the first task by pasting the the following code into the cell and and click the Run button:
 ```python
 import pandas as pd
 import random
