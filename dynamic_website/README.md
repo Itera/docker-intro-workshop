@@ -8,8 +8,8 @@ We can serve the website the same way as we did for the [static website](../stat
 **Note that we have a new index.html file in this task so we need to build a new image that copies the correct file.**
 
 **Write a `Dockerfile-website` that:**
-1) Inherits from the `nginx` base image
-2) Copies the index.html file to the `/usr/share/nginx/html` folder on the image
+1) Extends the `nginx` base image
+2) Copies the `index.html` file to the `/usr/share/nginx/html` folder in the image
 
 ### Build new image for the website
 ```
@@ -42,7 +42,7 @@ python3 api.py
 ```
 
 **Write a `Dockerfile-api` that:**
-1) Inherits from the `python:3.6` base image
+1) Extends the `python:3.6` base image
 2) Copies the `requirements.txt` and `api.py` files to the image
 3) Installs the requirements for the API
 4) Runs the API

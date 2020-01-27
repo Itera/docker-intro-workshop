@@ -28,7 +28,7 @@ Your `db-script` image should:
 docker build --tag db-script .
 ```
 
-Run container:
+**Run container**
 ```
 docker run --rm db-script
 ```
@@ -37,7 +37,9 @@ You should see a connection error in the output. This is because our container c
 
 **Why not?**
 
-We did not have the same issue in the previous task when we had a website and an API running in separate containers. **Why not?**
+We did not have the same issue in the previous task when we had a website and an API running in separate containers.
+
+**Why not?**
 
 Let's try accessing it using a Docker `link` or `network` instead.
 
@@ -62,7 +64,7 @@ docker run -e "<environment_variable>=<value> ..."
 docker run --rm --link my-postgres:postgres-host -it -e "DB_HOST=postgres-host" db-script
 ```
 
-You should noe see some values printed in the output from running the container.
+You should now see some values printed in the output from running the container.
 
 ## Using network
 Container links are a legacy feature that might be removed, so Docker suggest we should use a [network](https://docs.docker.com/network/) instead.
