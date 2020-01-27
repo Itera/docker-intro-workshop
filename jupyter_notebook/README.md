@@ -32,6 +32,11 @@ The final command of our image is to start the Jupyter kernel. This can be done 
 jupyter notebook --notebook-dir=/notebooks --ip=0.0.0.0 --port=8888 --allow-root
 ```
 
+## Build the image
+```
+docker build --tag jupyter-notebook .
+```
+
 ## Start the Jupyter kernel in a container
 In order to access our notebooks we need to mount our local `notebooks` folder into the `/notebooks` folder in our container.
 
