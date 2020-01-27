@@ -4,4 +4,4 @@ COPY db.py .
 
 RUN pip3 install psycopg2
 
-CMD python3 db.py
+CMD ["python3" "db.py"]

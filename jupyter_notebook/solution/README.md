@@ -36,5 +36,5 @@ EXPOSE 8888
 
 ## Start the jupyter notebook
 ```
-CMD jupyter notebook --notebook-dir=/notebooks --ip=0.0.0.0 --port=8888 --allow-root
+CMD ["jupyter", "notebook", "--notebook-dir=/notebooks", "--ip=0.0.0.0", "--port=8888", "--allow-root"]
 ```

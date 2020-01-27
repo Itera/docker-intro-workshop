@@ -18,5 +18,5 @@ RUN pip3 install psycopg2
 
 ## Run the script
 ```
-CMD python3 db.py
+CMD ["python3" "db.py"]
 ```
