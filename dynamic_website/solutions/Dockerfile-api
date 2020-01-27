@@ -5,4 +5,4 @@ COPY api.py .
 
 RUN pip3 install -r requirements.txt
 
-ENTRYPOINT ["python3", "api.py"]
+CMD ["python3", "api.py"]

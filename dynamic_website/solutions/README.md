@@ -38,8 +38,8 @@ RUN pip3 install -r requirements.txt
 ```
 
 ### Run our API
-Finally we can run our API
+Finally we can run our API using the `python3` command and `api.py` as argument:
 
 ```
-ENTRYPOINT ["python3", "api.py"]
+CMD ["python3", "api.py"]
 ```
