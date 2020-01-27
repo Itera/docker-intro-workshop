@@ -8,12 +8,14 @@ Since we don't want to install and configure nginx ourselves, we will create a D
 
 ## Run the image
 
+The nginx image will listen to requests on port 80, so we need to expose port 80 on the container on port 8080 on our system.
+
 - **We can run the nginx image using the following command**
 ```
 docker run --rm --publish 8080:80 nginx
 ```
 
-Try opening https://localhost:8080
+Try opening http://localhost:8080
 
 You should see a nginx welcome message.
 
@@ -36,11 +38,11 @@ Did the content change? Why/why not?
 ## Using custom image
 In this task we will copy the index.html file into the container instead of mounting our local file system.
 
-- **Modify the Dockerfile so that it inherits from the nginx image and adds a copy of the `index.html` file to the `/usr/share/nginx/html` folder in the container.**
+- **Modify the Dockerfile so that it inherits from the nginx image and copies the `index.html` file in this folder to the `/usr/share/nginx/html` folder in the container.**
 
-The relevant Dockerfile commands here are `FROM <base_image_name>` and `COPY <from (our filesystem)> <to (container filesystem)>`.
+The relevant Dockerfile commands are `FROM <base_image_name>` and `COPY <from (our filesystem)> <to (container filesystem)>`.
 
-Checkout the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) if you need any more guidance.
+Checkout the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for reference.
 
 
 - **Create an image from your Dockerfile using the `docker build` command:**

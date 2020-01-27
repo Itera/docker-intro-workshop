@@ -59,6 +59,8 @@ The API will listen to port 5000 so we need to expose port 5000 on the container
 docker run --rm --publish 5000:5000 flask-api
 ```
 
+You can verify that you are able to reach the API by loading its documentation page at http://localhost:5000/apidocs/
+
 You should now be able to view the website by opening http://localhost:8080 in a browser.
 
 Can you see the value we got from the API? Try reloading the page and see if the value changes.

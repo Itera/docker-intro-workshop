@@ -6,7 +6,7 @@ In this task we will create a container with a PostgreSQL database and one that 
 
 We can use the official [PostgreSQL](https://hub.docker.com/_/postgres) Docker image to run our database.
 
-- ** Start a container using the `docker run` command:**
+- **Start a container using the `docker run` command:**
 
 ```
 docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
@@ -36,6 +36,8 @@ docker run --rm db-script
 You should see a connection error in the output. This is because our container can't reach the database.
 
 **Why not?**
+
+We did not have the same issue in the previous task when we had a website and an API running in separate containers. **Why not?**
 
 Let's try accessing it using a Docker `link` or `network` instead.
 
@@ -118,16 +120,71 @@ It should contain something like this:
 docker run --name my-postgres --net postgres-network  -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
+NOTE: You may have to stop and remove the previous `my-postgres` container first:
 ```
-docker run --rm --net postgres-network "DB_HOST=172.18.0.1" db-script
+docker stop my-postgres
+docker rm my-postgres
 ```
 
-Note that the `DB_HOST` parameter is now set to `172.18.0.1` which is the `Gateway` IP address for our network.
+Once you have started the `my-postgres` container you can inspect the network with the following command:
+```
+docker network inspect postgres-network
+```
+
+The output should look something like this:
+```
+[
+    {
+        "Name": "postgres-network",
+        "Id": "bbf4ce8bc45f3adee2ce7960c0de18289b870ac4bf9c00c79269a288c257ac6a",
+        "Created": "2020-01-27T10:48:04.72173886+01:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "c53be40f7aba9b266b57850659eb47439d373b68db54110b6a657c5873a8eb56": {
+                "Name": "my-postgres",
+                "EndpointID": "6ae98da080e60b6d173ed1d21931a26ff415f391453aaeabe35c04335ea1beeb",
+                "MacAddress": "02:42:ac:12:00:02",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
+```
+
+You can see that it includes the `my-postgres` container which has the IPv4Address `172.18.0.2`
+
+Let's use this value as `DB_HOST` when running our `db-script` container.
+
+```
+docker run --rm --net postgres-network -e "DB_HOST=172.18.0.2" db-script
+```
 
 - **Try running the `db-script` container a couple of times.**
 
-**Does the output change for each run? Why/why not?**
+Does the output change for each run? Why/why not?
 
 - **Try terminating the `my-postgres` container and create a new one, then run the `db-script` container again**
 
-**Did the output change from last time? Why/why not?**
+Did the output change from last time? Why/why not?
