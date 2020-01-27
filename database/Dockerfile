@@ -1,0 +1,7 @@
+FROM
+
+COPY
+
+RUN
+
+CMD
