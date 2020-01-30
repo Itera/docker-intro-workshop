@@ -3,7 +3,7 @@
 The goal of this task is to serve a website on `localhost:8080` that fetches some content from an API at `localhost:5000/value` and renders the result.
 
 ## Website
-We can serve the website the same way as we did for the [static website](../static_website), so you can reuse your Dockerfile from that task.
+We can serve the website the same way as we did for the [static website](../01_static_website), so you can reuse your Dockerfile from that task.
 
 **Note that we have a new index.html file in this task so we need to build a new image that copies the correct file.**
 
