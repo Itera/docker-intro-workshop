@@ -1,6 +1,6 @@
 # Hosting a static website
 
-The goal of this task is to serve a website on http://localhost:8080
+The goal of this task is to serve a website on [http://localhost:8080](http:localhost:8080). This is just a fancy way of saying that we will download a webpage when we open that link in our browser. The webpage in question is the `index.html` file in this folder.
 
 We will serve the website using a webserver called [NGINX](https://www.nginx.com/products/nginx/).
 
