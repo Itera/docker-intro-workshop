@@ -180,8 +180,12 @@ You can see that it includes the `my-postgres` container which has the IPv4Addre
 Let's use this value as `DB_HOST` when running our `db-script` container.
 
 ```
-docker run --rm --net postgres-network -e "DB_HOST=172.18.0.2" db-script
+docker run --rm --net postgres-network -e "DB_HOST=<my-postgres:IPv4Address>" db-script
 ```
+
+Make sure to replace `<my-postgres:IPv4Address>` with the actual value.
+
+In our case the value of `my-postgres:IPv4Address` is `172.18.0.2` (collected from the `docker network inspect postgres-network` output above), but you might get a different value.
 
 - **Try running the `db-script` container a couple of times.**
 
