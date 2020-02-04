@@ -6,6 +6,10 @@ Each task has its own README with instructions.
 
 Solutions can be found in the corresponding solution folder for each task.
 
+## Slides from presentation
+
+Slides for the accompanying presentation can be found here: https://slides.com/leroise/dockerbasics
+
 ## Prerequisites
 
 Each task assumes that you have Docker installed.
