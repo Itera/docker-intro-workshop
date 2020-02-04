@@ -7,7 +7,7 @@ We can serve the website the same way as we did for the [static website](../01_s
 
 **Note that we have a new index.html file in this task so we need to build a new image that copies the correct file.**
 
-**Write a `Dockerfile-website` that:**
+- **Write a `Dockerfile-website` that:**
 1) Extends the `nginx` base image
 2) Copies the `index.html` file to the `/usr/share/nginx/html` folder in the image
 
@@ -38,12 +38,16 @@ The 3rd party requirements we need are listed in the `requirements.txt` file. We
 pip3 install -r requirements.txt
 ```
 
-Finally we can run the api using the `python3` command:
+This command is run as part of building the image, so we can execute it using the `RUN` command in the Dockerfile.
+
+Finally we can start the api using the `python3` command:
 ```
 python3 api.py
 ```
 
-**Write a `Dockerfile-api` that:**
+Since this command will run when the container starts and not when we build the image we will execute it using the `CMD` command instead of `RUN`.
+
+- **Write a `Dockerfile-api` that:**
 1) Extends the `python:3.6` base image
 2) Copies the `requirements.txt` and `api.py` files to the image
 3) Installs the requirements for the API
