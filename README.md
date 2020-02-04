@@ -37,7 +37,7 @@ On Linux it's suggested to create a `docker` group and add your user to it in or
 
 ## Tasks
 
-Each task will ask you to edit some files and run some commands. Make sure this is done in the task folder and not the root folder for this repository.
+Each task will ask you to edit some files and run some commands. Make sure you clone this repository and run the commands from the same folder as the task description (not the root folder).
 
 1) [Hosting a static website](01_static_website)
 2) [Fetching content from an API](02_dynamic_website)
