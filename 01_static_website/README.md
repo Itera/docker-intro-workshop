@@ -36,7 +36,7 @@ You should then be able to view the website by opening http://localhost:8080 in 
 
 - **Try changing the content of the index.html file and reload the webpage**
 
-Did the content change? Why/why not?
+QUESTION 1.1: Did the content change? Why/why not?
 
 ## Using custom image
 In this task we will copy the index.html file into the container instead of mounting our local file system.
@@ -66,4 +66,4 @@ You should then be able to view the website by opening http://localhost:8080 in 
 
 - **Try changing the content of the index.html file and reload the webpage.**
 
-Did the content change? Why/why not?
+QUESTION 1.2: Did the content change? Why/why not?
