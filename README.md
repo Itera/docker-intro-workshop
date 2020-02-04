@@ -39,6 +39,8 @@ On Linux it's suggested to create a `docker` group and add your user to it in or
 
 Each task will ask you to edit some files and run some commands. Make sure you clone this repository and run the commands from the same folder as the task description (not the root folder).
 
+Note that most of the commands we'll use in the tasks use named arguments (`--publish`, `--volume`) to make it easier to understand what they mean, but you'll often see the short version used elsewhere (`-p`, `-v`).
+
 1) [Hosting a static website](01_static_website)
 2) [Fetching content from an API](02_dynamic_website)
 3) [Connecting to a PostgreSQL database](03_database)
