@@ -15,10 +15,15 @@ The nginx image will listen to requests on port 80, so we need to expose port 80
 docker run --rm --publish 8080:80 nginx
 ```
 
-You should see a nginx welcome message if you open http://localhost:8080
+The `--rm` flag is added in order to automatically remove the container when it exits.
+The `--publish` or `-p` flag is added in order to map port 8080 on our system to port 80 on the container.
+
+You should see a nginx welcome message if you open http://localhost:8080 in a browser.
 
 ## Using mounted volume
-We want to see our own website instead of the welcome message. We will first solve this by mounting the current directory (this folder) into the `/usr/share/nginx/html` folder in the `nginx` container. We can do this by adding the `--volume` flag to the command.
+We want to see our own website instead of the welcome message. We can solve this by putting the `index.html` file into the `/usr/share/nginx/html` folder in the container.
+
+We will first solve this by mounting the current directory (this folder) into the `/usr/share/nginx/html` folder in the `nginx` container. We can do this by adding the `--volume` or `-v` flag to the command.
 
 - **Run the following command:**
 ```
@@ -49,6 +54,8 @@ See the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/
 ```
 docker build --tag my-static-website .
 ```
+
+The `--tag` or `-t` flag is used to give our image a name.
 
 - **Start a container from the image using the `docker run` command:**
 ```

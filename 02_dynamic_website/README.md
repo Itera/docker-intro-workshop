@@ -16,13 +16,15 @@ We can serve the website the same way as we did for the [static website](../01_s
 docker build --tag dynamic-website -f Dockerfile-website .
 ```
 
+NOTE: Since we have multiple Dockerfiles in this folder we need to explicitly tell the build command which file we want to build using the `--file` or `-f` flag.
+
 ### Run container
 ```
 docker run --rm -p 8080:80 dynamic-website
 ```
 
 ## API
-The code for the API we will use is in the `api.py` file.
+The code for the API is in the `api.py` file.
 
 This API should be run in a separate container.
 

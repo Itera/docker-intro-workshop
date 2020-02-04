@@ -12,6 +12,9 @@ We can use the official [PostgreSQL](https://hub.docker.com/_/postgres) Docker i
 docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
+The `--env` or `-e` flag let us specify environment variables in the container.
+The `--detach` or `-d` flag let us run a container in the background without locking our terminal.
+
 ## Running some SQL queries against the database
 
 We will run some SQL queries against the database using our `db.py` script.
@@ -53,7 +56,7 @@ The flag can be used like this:
 
 Here `name` is the name of the container we’re linking to (`my-postgres` in our case) and  `alias` is an alias for the link name. We can connect to the linked container by using the alias as host name.
 
-Our script looks for a value from the `DB_HOST` environment variable. We can override this value by using the `-e` flag when running the container like this:
+Our script looks for a value from the `DB_HOST` environment variable. We can override this value by using the `-e` or `--env` flag when running the container like this:
 ```
 docker run -e "<environment_variable>=<value> ..."
 ```
