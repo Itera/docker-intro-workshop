@@ -43,3 +43,5 @@ Finally we can run our API using the `python3` command and `api.py` as argument:
 ```
 CMD ["python3", "api.py"]
 ```
+
+Note that we use the `CMD` command here instead of the `RUN` command. The `RUN` command is intended to run a command as part of building the image, but the `CMD` command specifies the command for running a container of the image.
