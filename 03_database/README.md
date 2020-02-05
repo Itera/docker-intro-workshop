@@ -12,9 +12,11 @@ We can use the official [PostgreSQL](https://hub.docker.com/_/postgres) Docker i
 docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
-- The `--env` or `-e` flag let us specify environment variables in the container.
-- The `--detach` or `-d` flag let us run a container in the background without locking our terminal.
-- The `--name` tag gives our container a known name so that we can easily stop or remove it later by referring to its name.
+:information_source: The `--env` or `-e` flag let us specify environment variables in the container.
+
+:information_source: The `--detach` or `-d` flag let us run a container in the background without locking our terminal.
+
+:information_source: The `--name` tag gives our container a known name so that we can easily stop or remove it later by referring to its name.
 
 Since we gave our container a name we are now able to:
 - Stop the container: `docker stop my-postgres`
@@ -47,11 +49,11 @@ docker run --rm db-script
 
 You should see a connection error in the output. This is because our container can't reach the database.
 
-Question 3.1) Why not?
+:question: Question 3.1: Why not?
 
 We did not have the same issue in the previous task when we had a website and an API running in separate containers.
 
-Question 3.2) Why not?
+:question: Question 3.2: Why not?
 
 Let's try accessing it using a Docker `link` or `network` instead.
 
@@ -201,8 +203,8 @@ In our case the value of `my-postgres:IPv4Address` is `172.18.0.2` (collected fr
 
 - **Try running the `db-script` container a couple of times.**
 
-Question 3.3) Does the output change for each run? Why/why not?
+:question: Question 3.3: Does the output change for each run? Why/why not?
 
 - **Try to stop and remove the `my-postgres` container and create a new one, then run the `db-script` container again**
 
-Question 3.4) Did the output change from last time? Why/why not?
+:question: Question 3.4: Did the output change from last time? Why/why not?

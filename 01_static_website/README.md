@@ -1,4 +1,4 @@
-# Hosting a static website
+# Hosting a static website :web:
 
 The goal of this task is to serve a website on [http://localhost:8080](http:localhost:8080). This is just a fancy way of saying that we will download a webpage when we open that link in our browser. The webpage in question is the `index.html` file in this folder.
 
@@ -15,8 +15,9 @@ The nginx image will listen to HTTP requests on port 80, so we need to expose po
 docker run --rm --publish 8080:80 nginx
 ```
 
-- The `--rm` flag is added in order to automatically remove the container when it exits.
-- The `--publish` or `-p` flag is added in order to map port 8080 on our system to port 80 on the container.
+:information_source: The `--rm` flag is added in order to automatically remove the container when it exits.
+
+:information_source: The `--publish` or `-p` flag is added in order to map port 8080 on our system to port 80 on the container.
 
 You should see a nginx welcome message if you open http://localhost:8080 in a browser.
 
@@ -38,7 +39,7 @@ You should then be able to view the website by opening http://localhost:8080 in 
 
 - **Try changing the content of the index.html file and reload the webpage**
 
-QUESTION 1.1: Did the content change? Why/why not?
+:question: Question 1.1: Did the content change? Why/why not?
 
 ## Using custom image
 In this task we will copy the index.html file into the container instead of mounting our local file system.
@@ -57,9 +58,9 @@ See the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/
 docker build --tag my-static-website .
 ```
 
-The `--tag` or `-t` flag is used to give our image a name.
+:information_source: The `--tag` or `-t` flag is used to give our image a name.
 
-Congratulations! You have now built your first Docker image. You should be able to see your image if you run the `docker images` command. We are now ready to run a container using our freshly built image.
+Congratulations! :trophy: You have now built your first Docker image. You should be able to see your image if you run the `docker images` command. We are now ready to run a container using our freshly built image.
 
 - **Start a container from the `my-static-website` image using the `docker run` command:**
 ```
@@ -70,4 +71,4 @@ You should now be able to view the website by opening http://localhost:8080 in a
 
 - **Try changing the content of the index.html file and reload the webpage.**
 
-QUESTION 1.2: Did the content change? Why/why not?
+:question: Question 1.2: Did the content change? Why/why not?
