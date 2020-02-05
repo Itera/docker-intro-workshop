@@ -41,7 +41,7 @@ In order to solve all the tasks you need to share the drive you cloned this repo
 ### Windows 10 Home Edition
 If you have Windows 10 Home Edition you need to install [Docker Toolbox](https://github.com/docker/toolbox/releases) instead.
 
-NOTE: If you use Docker Toolbox you need to replace `localhost` with `192.168.99.100` when you solve the tasks.
+:information_source:NOTE: If you use Docker Toolbox you need to replace `localhost` with `192.168.99.100` when you solve the tasks.
 
 
 
