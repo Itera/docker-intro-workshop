@@ -69,4 +69,4 @@ You can verify that you are able to reach the API by loading its documentation p
 
 You should now be able to view the website by opening http://localhost:8080 in a browser.
 
-:question: Can you see the value we got from the API? Try reloading the page and see if the value changes.
+:question: Question 2.1: Can you see the value we got from the API? Try reloading the page and see if the value changes.
