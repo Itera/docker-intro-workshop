@@ -16,7 +16,7 @@ We can serve the website the same way as we did for the [static website](../01_s
 docker build --tag dynamic-website -f Dockerfile-website .
 ```
 
-NOTE: Since we have multiple Dockerfiles in this folder we need to explicitly tell the build command which file we want to build using the `--file` or `-f` flag.
+:information_source: Since we have multiple Dockerfiles in this folder we need to explicitly tell the build command which file we want to build using the `--file` or `-f` flag.
 
 ### Run container
 ```
@@ -69,4 +69,4 @@ You can verify that you are able to reach the API by loading its documentation p
 
 You should now be able to view the website by opening http://localhost:8080 in a browser.
 
-Can you see the value we got from the API? Try reloading the page and see if the value changes.
+:question: Can you see the value we got from the API? Try reloading the page and see if the value changes.

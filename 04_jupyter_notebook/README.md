@@ -48,7 +48,7 @@ We can achieve both these goals by running the command:
 docker run --rm --publish 8888:8888 --volume $(pwd)/notebooks:/notebooks jupyter-notebook
 ```
 
-NOTE: If you are using Windows you need to replace `$(pwd)` with `${pwd}`.
+:information_source: If you are using Windows you need to replace `$(pwd)` with `${pwd}`.
 
 ## Do some data science!
 We should now be able to access our notebook.
