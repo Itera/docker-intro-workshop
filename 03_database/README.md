@@ -189,17 +189,24 @@ The output should look something like this:
 ]
 ```
 
-You can see that it includes the `my-postgres` container which has the IPv4Address `172.18.0.2`
+You can see that it includes the `my-postgres` container which has the IPv4Address `172.18.0.2`. This might be a different value in your network.
 
-Let's use this value as `DB_HOST` when running our `db-script` container.
+### Using explicit IP address as host name
+One way to connect to the `my-postgres` container from our `db-script` container is to use this IP address as host name:
+```
+docker run --rm --net postgres-network -e "DB_HOST=172.18.0.2" db-script
+```
+
+Make sure to use the actual IP address from your previous output.
+
+### Using container name as host name
+Containers on user-defined bridge networks can resolve each other by name or alias, so a better solution is to use the container name as host name, like we did with the link:
 
 ```
-docker run --rm --net postgres-network -e "DB_HOST=<my-postgres:IPv4Address>" db-script
+docker run --rm --net postgres-network -e "DB_HOST=my-postgres" db-script
 ```
 
-Make sure to replace `<my-postgres:IPv4Address>` with the actual value.
-
-In our case the value of `my-postgres:IPv4Address` is `172.18.0.2` (collected from the `docker network inspect postgres-network` output above), but you might get a different value.
+This way we don't have to find the correct IP address first.
 
 - **Try running the `db-script` container a couple of times.**
 
