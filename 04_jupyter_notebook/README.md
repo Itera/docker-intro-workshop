@@ -49,6 +49,7 @@ docker run --rm --publish 8888:8888 --volume $(pwd)/notebooks:/notebooks jupyter
 ```
 
 :information_source: If you are using Windows you need to replace `$(pwd)` with `${pwd}`.
+:information_source: If you get the following error `docker: invalid reference format.`, try wrapping the volume fields with double quotes, i.e. `--volume "$(pwd):/usr/share/nginx/html:ro"`.
 
 ## Do some data science!
 We should now be able to access our notebook.

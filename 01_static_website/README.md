@@ -34,6 +34,7 @@ docker run --rm --publish 8080:80 --volume $(pwd):/usr/share/nginx/html:ro nginx
 ```
 
 NOTE: If you are using Windows you can run it in Powershell by replacing `$(pwd)` with `${pwd}`.
+:information_source: If you get the following error `docker: invalid reference format.`, try wrapping the volume fields with double quotes, i.e. `--volume "$(pwd):/usr/share/nginx/html:ro"`.
 
 You should then be able to view the website by opening http://localhost:8080 in a browser.
 
