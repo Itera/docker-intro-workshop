@@ -79,10 +79,10 @@ docker run -d --publish 5000:80 -e "RedisEndpoint=<redis_host>" <image_name>
 
 Once everything is up and running you should be able to access the API's swagger documentation on http://localhost:5000/swagger
 
-- **Try adding some values using the POST endpoint***
+- **Try adding some values using the POST api/redis endpoint***
 
-- **Verify that you can get the inserted values using the GET endpoint**
+- **Verify that you can get the inserted values using the GET api/redis endpoint**
 
 - **Stop and remove the redis container and create a new one**
 
-- **Verify that you get your old values when you call the GET endpoint**
+- **Verify that you get your old values when you call the GET api/redis endpoint**
