@@ -248,11 +248,12 @@ docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d --mount t
 
 - **Try running the db-script container again**
 
-Remember that you need to either use a link or network to reach the container.
+:information_source: Remember that you need to either use a link or network to reach the container.
 
 - **Look at the files in the `Mountpoint` path on your machine**
 
-Are there any new files there?
+:question: Are there any new files there?
 
 - **Try to stop and remove the `my-postgres` container and create a new one (with the same mounted volume), then run the `db-script` container again**
+
 :question: Question 3.5: Did we still have the values from our previous run? Why/why not?
