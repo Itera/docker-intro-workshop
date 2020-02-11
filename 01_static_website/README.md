@@ -29,10 +29,10 @@ We will first solve this by mounting the current directory (this folder) into th
 We can do this by adding the `-v`/`--volume` flag or the `--mount` flag to the command.
 
 ### Using the --volume flag
-The `--volume` flag taks an argument that is divided into 3 separated by `:`.
+The `--volume` flag takes an argument that is divided into 3 separated by `:`.
 
 - The first part is the path to the file or directory on the host machine.
-- The second part is the path where the file or directory is mounted in the container
+- The second part is the path where the file or directory is mounted in the container.
 - The third part is optional, and is a comma-separated list of options. In this case we use the `ro` (readonly) option, because we don't want the container to write changes to the file.
 
 - **Run the following command:**
