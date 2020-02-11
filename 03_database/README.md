@@ -215,3 +215,44 @@ This way we don't have to find the correct IP address first.
 - **Try to stop and remove the `my-postgres` container and create a new one, then run the `db-script` container again**
 
 :question: Question 3.4: Did the output change from last time? Why/why not?
+
+## Persist our data in a volume
+
+We can create and mount a Docker volume in order to persist the state between each time we create a new postgresql container.
+
+### Create a volume
+
+In order to do this we first need to create a volume:
+
+```
+docker volume create postgresql-volume
+```
+
+You can inspect the volume to see where on your machine the data is stored:
+```
+docker volume inspect postgresql-volume
+```
+
+The data is stored in the `Mountpoint` path on your machine.
+
+### Mount the volume to our `my-postgresql` container
+
+Next we need to mount the volume to our container. Our container stores its data in the `/var/lib/postgresql/data` directory by default.
+
+We can mount the volume by using the `--mount` flag:
+```
+docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d --mount type=volume,source=<name_of_our_volume>,destination=<directory_on_the_container> postgres
+```
+
+### Verify that our data is persisted
+
+- **Try running the db-script container again**
+
+Remember that you need to either use a link or network to reach the container.
+
+- **Look at the files in the `Mountpoint` path on your machine**
+
+Are there any new files there?
+
+- **Try to stop and remove the `my-postgres` container and create a new one (with the same mounted volume), then run the `db-script` container again**
+:question: Question 3.5: Did we still have the values from our previous run? Why/why not?
