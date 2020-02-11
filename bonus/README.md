@@ -38,7 +38,7 @@ docker run --name <container_name> -d redis redis-server --appendonly yes
 
 ## API
 
-The source code for our API is on the [ValuesApi](ValuesApi) folder. In order to build our API we need the .NET Core SDK. We can use the `microsoft/dotnet:2.2-sdk` image for this.
+The source code for our API is on the [ValuesApi](ValuesApi) folder. In order to build our API we need the .NET Core SDK. We can use the `mcr.microsoft.com/dotnet/core/sdk:2.2` image for this.
 
 ### Building the API
 
