@@ -21,12 +21,19 @@ docker run --rm --publish 8080:80 nginx
 
 You should see a nginx welcome message if you open http://localhost:8080 in a browser.
 
-## Using mounted volume
+## Using a bind mount
 We want to see our own website instead of the welcome message. We can solve this by putting the `index.html` file into the `/usr/share/nginx/html` folder in the container.
 
 We will first solve this by mounting the current directory (this folder) into the `/usr/share/nginx/html` folder in the `nginx` container.
 
-We can do this by adding the `--volume` or `-v` flag to the command.
+We can do this by adding the `-v`/`--volume` flag or the `--mount` flag to the command.
+
+### Using the --volume flag
+The `--volume` flag taks an argument that is divided into 3 separated by `:`.
+
+- The first part is the path to the file or directory on the host machine.
+- The second part is the path where the file or directory is mounted in the container
+- The third part is optional, and is a comma-separated list of options. In this case we use the `ro` (readonly) option, because we don't want the container to write changes to the file.
 
 - **Run the following command:**
 ```
@@ -37,7 +44,16 @@ docker run --rm --publish 8080:80 --volume $(pwd):/usr/share/nginx/html:ro nginx
 
 :information_source: If you get the following error `docker: invalid reference format.`, try wrapping the volume fields with double quotes, i.e. `--volume "$(pwd):/usr/share/nginx/html:ro"`.
 
-You should then be able to view the website by opening http://localhost:8080 in a browser.
+### Using the --mount flag
+The `--mount` flag takes an argument with `<key>=<value>` pairs, separated by `,`.
+
+It's a bit more verbose, but easier to understand.
+
+```
+docker run --rm --publish 8080:80 --mount type=bind,source=$(pwd),destination=/usr/share/nginx/html,readonly nginx
+```
+
+You should now be able to view the website by opening http://localhost:8080 in a browser.
 
 - **Try changing the content of the index.html file and reload the webpage**
 
