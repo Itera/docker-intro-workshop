@@ -55,30 +55,7 @@ We did not have the same issue in the previous task when we had a website and an
 
 :question: Question 3.2: Why not?
 
-Let's try accessing it using a Docker `link` or `network` instead.
-
-## Using link
-Try accessing it through a [docker link](https://docs.docker.com/network/links/) using the `--link` flag when running the `db-script` container.
-
-The flag can be used like this:
-```
---link <name or id>:alias
-```
-
-Here `name` is the name of the container we’re linking to (`my-postgres` in our case) and  `alias` is an alias for the link name. We can connect to the linked container by using the alias as host name.
-
-Our script looks for a value from the `DB_HOST` environment variable. We can override this value by using the `-e` or `--env` flag when running the container like this:
-```
-docker run -e "<environment_variable>=<value> ..."
-```
-
-- **Run the following command:**
-
-```
-docker run --rm --link my-postgres:postgres-host -e "DB_HOST=postgres-host" db-script
-```
-
-You should now see some values printed in the output from running the container.
+Let's try accessing it using a Docker `network` instead.
 
 ## Using network
 Container links are a legacy feature that might be removed, so Docker suggest we should use a [network](https://docs.docker.com/network/) instead.
