@@ -15,11 +15,7 @@ Slides for the accompanying presentation can be found here: https://slides.com/l
 Each task assumes that you have Docker installed.
 
 ### Windows / macOS
-On Windows and macOS you can install [Docker Desktop](https://www.docker.com/products/docker-desktop)
-
-You can download from these links to avoid creating a user and logging in first:
-- Windows: https://download.docker.com/win/stable/Docker%20for%20Windows%20Installer.exe
-- Mac: https://download.docker.com/mac/stable/Docker.dmg
+On Windows, macOS or Linux you can install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
 #### Setup on Windows
 On Windows we need to do some more setup before we are ready.
