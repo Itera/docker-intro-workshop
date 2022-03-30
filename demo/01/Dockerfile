@@ -1,5 +1,7 @@
-FROM python:3.6
+FROM alpine
 
-COPY my_script.py .
+RUN apk add --update python3 py3-pip
 
-CMD [ "python3", "my_script.py" ]
+COPY my_script.py /
+
+CMD [ "python", "./my_script.py" ]
