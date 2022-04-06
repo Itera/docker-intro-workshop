@@ -57,8 +57,8 @@ We did not have the same issue in the previous task when we had a website and an
 
 Let's try accessing it using a Docker `network` instead.
 
-## Using network
-Container links are a legacy feature that might be removed, so Docker suggest we should use a [network](https://docs.docker.com/network/) instead.
+## Connect containers using a network
+We can connect one container to another by using a [network](https://docs.docker.com/network/).
 
 We will create a `bridge` network that our containers can use to communicate.
 
@@ -177,7 +177,7 @@ docker run --rm --net postgres-network -e "DB_HOST=172.18.0.2" db-script
 Make sure to use the actual IP address from your previous output.
 
 ### Using container name as host name
-Containers on user-defined bridge networks can resolve each other by name or alias, so a better solution is to use the container name as host name, like we did with the link:
+Containers on user-defined bridge networks can resolve each other by name or alias, so a better solution is to use the container name as host name:
 
 ```
 docker run --rm --net postgres-network -e "DB_HOST=my-postgres" db-script
@@ -225,7 +225,7 @@ docker run --name my-postgres -e POSTGRES_PASSWORD=mysecretpassword -d --mount t
 
 - **Try running the db-script container again**
 
-:information_source: Remember that you need to either use a link or network to reach the container.
+:information_source: Remember that you need to use a network to reach the container.
 
 - **Look at the files in the `Mountpoint` path on your machine**
 
