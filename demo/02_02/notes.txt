@@ -1,0 +1,20 @@
+0 - Build
+docker build -t docker-demo-2 .
+
+1 - Run without volume
+docker run --name my-docker-demo-2 docker-demo-2
+
+2 - Run with same container
+docker stop my-docker-demo-2
+docker start my-docker-demo-2
+docker logs -f my-docker-demo-2
+
+3 - Run with new container
+docker run --rm docker-demo-2
+
+4 - Run with volume
+docker volume create my-volume
+docker run --rm --mount type=volume,source=my-volume,destination=/app/pickle docker-demo-2
+
+5 - Run new container with same volume
+docker run --rm --mount type=volume,source=my-volume,destination=/app/pickle docker-demo-2
