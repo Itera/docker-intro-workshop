@@ -27,13 +27,6 @@ Right-click the Docker tray icon -> "Switch to Linux containers...".
 
 If you get the option to "Switch to Windows containers..." you are already using Linux containers.
 
-##### Enable file sharing
-File sharing is required for mounting volumes when running Linux containers on Windows, so you need to enable the local directories you’d like to share with your Linux containers.
-
-Right-click the Docker tray icon -> Settings -> Shared Drives -> Select the drives you want to share.
-
-In order to solve all the tasks you need to share the drive you cloned this repository to.
-
 ### Linux
 On Linux (Ubuntu) you can follow [this](https://docs.docker.com/install/linux/docker-ce/ubuntu/) guide.
 
