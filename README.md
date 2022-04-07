@@ -34,13 +34,6 @@ Right-click the Docker tray icon -> Settings -> Shared Drives -> Select the driv
 
 In order to solve all the tasks you need to share the drive you cloned this repository to.
 
-### Windows 10 Home Edition
-If you have Windows 10 Home Edition you need to install [Docker Toolbox](https://github.com/docker/toolbox/releases) instead.
-
-:information_source:NOTE: If you use Docker Toolbox you need to replace `localhost` with `192.168.99.100` when you solve the tasks.
-
-
-
 ### Linux
 On Linux (Ubuntu) you can follow [this](https://docs.docker.com/install/linux/docker-ce/ubuntu/) guide.
 
